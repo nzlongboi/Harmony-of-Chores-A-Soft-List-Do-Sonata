@@ -2,7 +2,7 @@
 
 
 class Project {
-    constructor() {
+    constructor(title, description, dueDate, priority, counter) {
         this.title = title;
         this.description = description;
         this.dueDate = dueDate;
@@ -46,12 +46,16 @@ class Project {
 
         projectForm.appendChild(projectNameInput);
         projectForm.appendChild(submitButton);
+
+        // return the form so it can be used externally
+        return projectForm;
     }
 
 }
 
 
 
-
-
 export default Project;
+
+
+// this whole bit may beed to be rewritten

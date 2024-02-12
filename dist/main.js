@@ -20,6 +20,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./src/createNewProject.js":
+/*!*********************************!*\
+  !*** ./src/createNewProject.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n\n\n\nclass Project {\n    constructor(title, description, dueDate, priority, counter) {\n        this.title = title;\n        this.description = description;\n        this.dueDate = dueDate;\n        this.priority = priority;\n        this.counter = counter;\n    }\n\n    createProject() {\n        // creating a form element\n        const projectForm = document.createElement('form');\n        projectForm.classList.add('project-form');\n\n        // creating the input elements for the form\n        const projectNameInput = document.createElement('input');\n        projectNameInput.setAttribute('type', 'text');\n        projectNameInput.setAttribute('placeholder', 'Enter project name');\n        projectNameInput.setAttribute('required', 'true');\n\n        // add description, due date, priority and counter\n\n        // creating the submit button\n        const submitButton = document.createElement('button');\n        submitButton.setAttribute('type', 'submit');\n        submitButton.innerText = 'Create Project';\n\n        projectForm.addEventListener('submit', (event) => {\n            event.preventDefault();\n\n            // retrive the project name from the input field\n            const projectName = projectNameInput.value;\n\n            // create project DOM element and append it to the projects page\n            const projectElement = document.createElement('div');\n            projectElement.innerText = `Project: ${projectName}`;\n\n            const projectsPage = document.getElementById('content');\n            projectsPage.appendChild(projectElement);\n\n            projectForm.reset();\n        });\n\n        projectForm.appendChild(projectNameInput);\n        projectForm.appendChild(submitButton);\n\n        // return the form so it can be used externally\n        return projectForm;\n    }\n\n}\n\n\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Project);\n\n//# sourceURL=webpack://harmony-of-chores-a-soft-list-do-sonata/./src/createNewProject.js?");
+
+/***/ }),
+
 /***/ "./src/createWelcomePage.js":
 /*!**********************************!*\
   !*** ./src/createWelcomePage.js ***!
@@ -56,7 +66,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \*****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _clearContent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./clearContent */ \"./src/clearContent.js\");\n\n\nconst createProjectsPage = () => {\n    const content = document.getElementById('content');\n    const projectsPageBody = document.createElement('div');\n    projectsPageBody.classList.add('projects-page-body');\n    projectsPageBody.innerText = 'This is the projects page!';\n\n\n\n    content.appendChild(projectsPageBody);\n\n\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (createProjectsPage);\n\n//# sourceURL=webpack://harmony-of-chores-a-soft-list-do-sonata/./src/projectsPage.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _clearContent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./clearContent */ \"./src/clearContent.js\");\n/* harmony import */ var _toolbar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./toolbar */ \"./src/toolbar.js\");\n\n\n\nconst createProjectsPage = () => {\n    const content = document.getElementById('content');\n    const projectsPageBody = document.createElement('div');\n    projectsPageBody.classList.add('projects-page-body');\n    projectsPageBody.textContent = 'This is the projects page!';\n\n    const toolBar = (0,_toolbar__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n    projectsPageBody.appendChild(toolBar);\n    content.appendChild(projectsPageBody);\n\n\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (createProjectsPage);\n\n//# sourceURL=webpack://harmony-of-chores-a-soft-list-do-sonata/./src/projectsPage.js?");
+
+/***/ }),
+
+/***/ "./src/toolbar.js":
+/*!************************!*\
+  !*** ./src/toolbar.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _createNewProject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./createNewProject */ \"./src/createNewProject.js\");\n\n\n\n\nconst createToolBar = () => {\n    const toolBar = document.createElement('div');\n    toolBar.classList.add('toolbar');\n    \n    const button = document.createElement('button');\n    button.innerHTML = 'Create New Project';\n\n    // keep track of the created form\n    let projectForm;\n\n    button.addEventListener('click', () => {\n        console.log('Button clicked');\n\n        const project = new _createNewProject__WEBPACK_IMPORTED_MODULE_0__[\"default\"]();\n        projectForm = project.createProject();\n\n        const content = document.getElementById('content');\n        content.appendChild(projectForm);\n\n    });\n    \n    toolBar.appendChild(button);\n\n    const content = document.getElementById('content');\n    content.appendChild(toolBar);\n    \n    return toolBar;\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (createToolBar);\n\n//# sourceURL=webpack://harmony-of-chores-a-soft-list-do-sonata/./src/toolbar.js?");
 
 /***/ })
 

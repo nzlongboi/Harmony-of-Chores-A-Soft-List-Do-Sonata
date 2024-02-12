@@ -16,8 +16,29 @@ body {
 }
 
 .projects-page-body {
-    background-color: blue;
+    background-color: #7ad7b4;
     height: 100vh;
     width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+.toolbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    height: 50px;
+    background-color: rgb(102, 51, 153);
+}
+
+.project-form {
+    height: 50vh;
+    width: 100vw;
+    background-color: white;
+    z-index: 1;
+    display: flex;
+}

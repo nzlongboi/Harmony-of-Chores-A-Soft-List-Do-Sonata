@@ -1,5 +1,6 @@
-import clearContent from './clearContent';
+
 import createToolBar from './toolbar';
+
 
 const createProjectsPage = () => {
     const content = document.getElementById('content');

@@ -1,5 +1,3 @@
-
-
 const clearContent = () => {
     const content = document.getElementById('content');
     if (content) {

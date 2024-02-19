@@ -18,7 +18,7 @@ const createWelcomePage = () => {
         console.log('hello');
         clearContent();
         createProjectsPage();
-    }) 
+    });
 
     
 
